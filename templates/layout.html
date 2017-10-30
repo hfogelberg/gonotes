@@ -1,0 +1,41 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>GoNotes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/public/styles/reset.css">
+  <link rel="stylesheet" href="/public/styles/master.css">
+  <link rel="stylesheet" href="/public/styles/slideMenu.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="brand">
+      <button class='hamburger' onclick="openNav()">
+        <img src="/public/img/menu.svg">
+      </button>
+      <a href="/">
+        <h1>GoNotes</h1>
+      </a>
+    </div>
+  </header>
+
+  <div class="sidenav" id="sidenav">
+    <button onclick="closeNav()" class="btnclose">X</button>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+
+  <div class="container">
+    {{template "content" .}}
+  </div>
+
+  <script src="/public/scripts/slideMenu.js"></script>
+</body>
+{{end}}

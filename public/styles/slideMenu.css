@@ -1,0 +1,55 @@
+.btnclose {
+    padding-left: 0.5em;
+    font-size: 2em;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(44, 62, 80, 0.8);
+    overflow: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 0.5em 0em 0.5em 2em;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #ecf0f1;
+    display: block;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:focus {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.btnclose {
+    font-size: 2em;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #ecf0f1;
+}
