@@ -1,8 +1,13 @@
 {{define "content"}}
 <div class="admin">
-  <h2>Admin</h2>
   <div class="toolbar">
     <a href="/notes/create"><img src="/img/pen.svg" alt="Add"></a>
   </div>
+
+  <ul class="thumb"> 
+    {{range .}}
+      <li>{{.Text}}</li>
+    {{end}}
+  </ul>
 </div>
 {{end}}

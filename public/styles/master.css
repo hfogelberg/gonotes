@@ -32,13 +32,6 @@ html {
     padding: 0 2em 2em 2em;
 }
 
-
-/* form {
-    width: 5em;
-    margin: 0 auto;
-    font-size: 2.5em;
-} */
-
 h1 {
     font-size: 3.5em;
     font-weight: 400;
@@ -119,6 +112,27 @@ header a {
 }
 
 
+/* Admin */
+
+ul.thumb {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.thumb>li {
+    padding: 0.5em;
+    width: 20vw;
+    height: 20vh;
+    margin: 1em;
+    border-radius: 8px;
+    background-color: rgba(88, 110, 117, 0.1);
+    -webkit-box-shadow: 8px 9px 23px 2px rgba(88, 110, 117, 0.7);
+    -moz-box-shadow: 8px 9px 23px 2px rgba(88, 110, 117, 0.7);
+    box-shadow: 8px 9px 23px 2px rgba(88, 110, 117, 0.7);
+}
+
+
 /* Create */
 
 .create-form {
@@ -169,81 +183,3 @@ textarea {
     height: 3em;
     width: 3em;
 }
-
-
-/* Contact form and new artwork*/
-
-
-/*
-.contact {
-    margin-top: 2em;
-    width: 100%;
-    height: 100%;
-}
-
-form {
-    margin-left: 10%;
-    width: 80%;
-    font-size: 1.2em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-}
-
-form div+div {
-    margin-top: 1em;
-}
-
-form>div {
-    margin-bottom: 0.5em;
-}
-
-form label {
-    display: inline-block;
-    width: 10ch;
-    text-align: right;
-    margin-right: 1em;
-    line-height: 1.5em;
-}
-
-label,
-label>input {
-    display: inline-block;
-    margin: 0;
-    line-height: 1.5em;
-    vertical-align: top;
-    font-size: 1.1em;
-}
-
-input,
-textarea {
-    font-size: 1.1em;
-    width: 80vw;
-    max-width: 80ch;
-    margin: 0 auto;
-    box-sizing: border-box;
-    border: 1px solid #999;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    color: #34495e;
-    border-radius: 15px;
-}
-
-input[type="text"],
-input[type="email"] {
-    line-height: 2em;
-    height: 2em;
-}
-
-textarea {
-    padding-top: 0.5em;
-    vertical-align: top;
-    height: 10em;
-}
-
-.create {
-    margin-top: 2em;
-    display: flex;
-    align-items: left;
-} */

@@ -6,11 +6,6 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
-func (conn *Connection) getNotes(email string) ([]Note, error) {
-	log.Println("GET NOTES")
-
-}
-
 func (conn *Connection) createNote(note Note) error {
 	log.Printf("Save note")
 	if err := conn.Db.C("notes").Insert(&note); err != nil {
@@ -24,7 +19,7 @@ func (conn *Connection) createNote(note Note) error {
 func (conn *Connection) getNotes(email string) ([]*Note, error) {
 	var notes []*Note
 
-	err := conn.Db.C("notes").Find(bson.M{"email": string}).All(&notes)
+	err := conn.Db.C("notes").Find(bson.M{"email": email}).All(&notes)
 	if err != nil {
 		log.Printf("Error getting notes %s\n", err.Error())
 		return notes, err

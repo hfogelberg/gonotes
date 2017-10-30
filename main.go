@@ -28,7 +28,7 @@ func main() {
 	goat.New(sessions.NewCookieStore([]byte(HmacSecret)), "/notes/index", CookieName)
 
 	r := mux.NewRouter().StrictSlash(false)
-	r.HandleFunc("/", connection.indexHandler)
+	r.HandleFunc("/", indexHandler)
 	r.HandleFunc("/about", aboutHandler)
 	r.HandleFunc("/contact", contactHandler)
 	r.HandleFunc("/googlelogin", goat.GoogleLoginHandler)
@@ -36,7 +36,7 @@ func main() {
 	r.HandleFunc("/favicon.ico", toogo.FaviconHandler)
 
 	adm := r.PathPrefix("/notes/").Subrouter().StrictSlash(false)
-	adm.HandleFunc("/index", adminHandler)
+	adm.HandleFunc("/index", connection.adminHandler)
 	adm.HandleFunc("/create", createHandler).Methods("GET")
 	adm.HandleFunc("/create", connection.createPostHandler).Methods("POST")
 

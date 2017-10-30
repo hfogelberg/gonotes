@@ -8,19 +8,7 @@ import (
 	"time"
 )
 
-func (conn *Connection) indexHandler(w http.ResponseWriter, r *http.Request) {
-	session, err := store.Get(r, CookieName)
-	if err != nil {
-		log.Printf("Error getting cookie %s\n", err.Error())
-		http.Redirect(w, r, "/", http.StatusPermanentRedirect)
-	}
-	email := session.Values["email"].(string)
-
-	notes, err := getNotes(email)
-	if err != nil {
-
-	}
-
+func indexHandler(w http.ResponseWriter, r *http.Request) {
 	tpl, err := template.New("").ParseFiles("templates/index.html", "templates/layout.html")
 	err = tpl.ExecuteTemplate(w, "layout", nil)
 	if err != nil {
@@ -29,10 +17,22 @@ func (conn *Connection) indexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func adminHandler(w http.ResponseWriter, r *http.Request) {
+func (conn *Connection) adminHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("admin handler")
+	session, err := store.Get(r, CookieName)
+	if err != nil {
+		log.Printf("Error getting cookie %s\n", err.Error())
+		http.Redirect(w, r, "/", http.StatusPermanentRedirect)
+	}
+	email := session.Values["email"].(string)
+
+	notes, err := conn.getNotes(email)
+	if err != nil {
+		http.Redirect(w, r, "/", http.StatusPermanentRedirect)
+	}
+
 	tpl, err := template.New("").ParseFiles("templates/admin.html", "templates/layout.html")
-	err = tpl.ExecuteTemplate(w, "layout", nil)
+	err = tpl.ExecuteTemplate(w, "layout", notes)
 	if err != nil {
 		log.Fatalln("Error serving admin template ", err.Error())
 		return
